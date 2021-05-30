@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { IsString, MaxLength } from "class-validator";
 
 export class FileRef {
     @ApiProperty({
@@ -6,8 +7,8 @@ export class FileRef {
         maxLength: 36,
         type: String,
     })
-    // @IsString()
-    // @MaxLength(36)
+    @IsString()
+    @MaxLength(36)
     public id: string;
 
     @ApiProperty({
@@ -15,14 +16,14 @@ export class FileRef {
         maxLength: 128,
         type: String,
     })
-    // @IsString()
-    // @MaxLength(128)
+    @IsString()
+    @MaxLength(128)
     public name: string;
 
     @ApiProperty({
         description: 'File\'s Path',
         type: String,
     })
-    // @IsString()
+    @IsString()
     public path: string;
 }
